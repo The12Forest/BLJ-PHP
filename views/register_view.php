@@ -5,9 +5,10 @@
 require "function/user_management.php"; //Eigene Bibliothek für register() und user()
 
 $register_Failed = false;
-
+$if_POST = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    $if_POST = true;
     $username = $_POST['username'] ?? '';
     $name = $_POST['name'] ?? '';
     $password = hash("sha256", $_POST['password'] ?? '');
@@ -66,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $register_Failed) {
                         id="name" 
                         name="name" 
                         placeholder="Enter your legal name" 
-                        value=<?php echo $_POST['name'] ?? ''; ?>
+                        <?php if ($if_POST) {echo "value="; echo $_POST['name'] ?? '';} ?>
                         required
                     >
                 </div>
@@ -78,7 +79,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $register_Failed) {
                         id="username" 
                         name="username" 
                         placeholder="Enter your username" 
-                        value=<?php echo $_POST['username'] ?? ''; ?>
+                        <?php if ($if_POST) {echo "value="; echo $_POST['username'] ?? '';} ?>
                         required
                     >
                 </div>
