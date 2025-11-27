@@ -1,0 +1,33 @@
+.h1_Title {
+    color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 20%;
+    width: 50%;
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+
+.div_Blog {
+    color: aliceblue;
+    margin: 3% 20%;
+    width: 50%;
+    background-color: #2e283d;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.div_Blogs {
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+}
+
+.div_Fullpage {
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: 15vh 100%;
+    /* height: 100%; */
+}
+
+

@@ -1,0 +1,12 @@
+body {
+    padding: 0; 
+    margin: 0;
+    background-color: #2e3035;
+    font-family: Arial, sans-serif;
+}
+
+.LogoIMG {
+    height: 70px;
+    width: 70px;
+}
+

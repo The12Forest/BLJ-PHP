@@ -1,0 +1,86 @@
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.Navigation {
+    width: 100%;
+    background-color: #1c1825;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+
+.Sitelogo {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.LogoIMG {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.User {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.User img {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+}
+
+.LoginButton {
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 0;
+    color: #5e5dad;
+    font-size: 1.6rem;
+}
+
+.LoginButton:hover {
+    background-color: #262133;
+}
+
+.LoginButton:active {
+    background-color: #39324d;
+
+}
+
+.User {
+    margin: 0;
+    margin-right: 1%;
+    padding: 0;
+}
+
+.botton_Blog {
+    background-color: none;
+    border: none;
+    text-decoration: none;
+    padding: 20px;
+    border-radius: 4px;
+    margin: 0;
+    color: #5e5dad;
+    font-size: 1.6rem;
+    margin-right: 25px;
+}
+
+.botton_Blog:hover {
+    background-color: #262133;
+}
+
+.botton_Blog:active {
+    background-color: #39324d;
+
+}
