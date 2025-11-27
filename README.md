@@ -1,1 +1,6 @@
 # BLJ-PHP
+
+A Project i created during BasisLehr Jahr.
+
+## Future Feautres
+- Admin can create New toppics

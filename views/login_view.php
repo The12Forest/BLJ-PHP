@@ -2,7 +2,8 @@
 
 <?php 
 
-require "function/user_management.php"; //Eigene Bibliothek für login() und user()
+// require "function/user_management.php"; //Eigene Bibliothek für login() und user()
+// Already set in header.php
 
 $login_Failed = true;
 
@@ -19,14 +20,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
             setcookie("passwd", $password, time() + (30 * 24 * 60 * 60), "/");
             setcookie("username", $username, time() + (30 * 24 * 60 * 60), "/");
             setcookie("remember", "true", time() + (30 * 24 * 60 * 60), "/");
+        } else {
+            setcookie("passwd", $password, time() + (18 * 60 * 60), "/");
+            setcookie("username", $username, time() + (18 * 60 * 60), "/");
+            setcookie("remember", "true", time() + (18 * 60 * 60), "/");
         }
     }
 
 } else {
     if (isset($_COOKIE['remember']) ? true : false) { 
 
-        $username = $_COOKIE["Username"];
-        $password = $_COOKIE["PW"];
+        $username = $_COOKIE["username"];
+        $password = $_COOKIE["passwd"];
         
         $login_Failed = !login($username, $password);
 
@@ -87,6 +92,6 @@ if ($login_Failed || $_SERVER["REQUEST_METHOD"] == "GET") {
     </div>
 
 <?php } else { ?>
-    <meta http-equiv="refresh" content="0; url=user">
+    <meta http-equiv="refresh" content="0; url=create_Blog">
 <?php }?>
 <!-- <script src="JavaScript/login.js"></script> -->

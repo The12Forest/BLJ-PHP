@@ -7,7 +7,7 @@ $routes = [
     'register'       => 'views/register_view.php',
     'blogs'          => 'views/blog_view.php',
     'login'          => 'views/login_view.php',
-    // 'about'         => 'views/about_view.php'
+    'create_Blog'    => 'views/create_Blog_view.php'
 ];
 
 if (array_key_exists($page, $routes)) {

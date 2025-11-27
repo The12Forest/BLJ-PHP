@@ -1,16 +1,17 @@
-<?php require 'function/get_user_info.php' ?>
+<?php require 'function/header_User_Info.php' ?>
 
 <header>
     <nav class="Navigation">
         <link rel="stylesheet" href="css/nav.css">
 
-        <a href="" class="Sitelogo">
+        <a href="/Abschluss/" class="Sitelogo">
             <img class="LogoIMG" src="images/SiteLogo.png" alt="Logo">
         </a>
 
         <div class="User">
             <a class="botton_Blog" href="blogs">Blogs</a>
             <?php if($loggedIN): ?>
+                <a class="botton_Blog" href="create_Blog">Post</a>
                 <img src="<?= $UserIMG ?>" alt="UserIMAGE">
             <?php else: ?>
                 <a class="LoginButton" href="login">Login</a>

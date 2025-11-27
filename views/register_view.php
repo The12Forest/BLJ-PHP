@@ -2,7 +2,8 @@
 
 <?php 
 
-require "function/user_management.php"; //Eigene Bibliothek für register() und user()
+// require "function/user_management.php"; //Eigene Bibliothek für register() und user()
+// Already set in header.php
 
 $register_Failed = false;
 $if_POST = false;
@@ -122,5 +123,5 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $register_Failed) {
     </div>
 
 <?php } else { ?>
-    <meta http-equiv="refresh" content="0; url=user">
+    <meta http-equiv="refresh" content="0; url=create_Blog">
 <?php }?>
