@@ -1,3 +1,11 @@
+<?php 
+require "function/database.php";
+require "function/user_management.php"; //Eigene Bibliothek für login() und user()
+require "function/blogs.php";
+
+
+?>
+
 <!doctype html>
 <html lang="en">
     <head>

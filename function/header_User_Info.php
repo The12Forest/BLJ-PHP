@@ -1,6 +1,6 @@
 <?php
 
-require "function/user_management.php"; //Eigene Bibliothek für login() und user()
+
 
 
 $loggedIN = null;

@@ -1,14 +1,27 @@
 <?php 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-    }
+    $POST_Succesfull = false;
 
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $username = $_COOKIE["username"];
+        $password = $_COOKIE["passwd"];
+
+        $title = htmlspecialchars($_POST['title'] ?? '');
+        $content = htmlspecialchars($_POST['content'] ?? '');
+        // $content = $_POST['content'] ?? '';  // to allow Cross site scripting
+
+        if (login($username, $password)) {
+            $topic = "Default";
+            if (post($title, $content, $username, $topic)) {
+                $POST_Succesfull = true;
+            }
+        }
+    }
 ?>
 
 <link rel="stylesheet" href="css/create_Blog.css">
 
 
-
+<?php if (!$POST_Succesfull) {?>
 
 <div class="login-container">
     <div class="login-box">
@@ -27,13 +40,13 @@
                 >
             </div>
             <div class="form-group">
-                <label for="text">Blog</label>
+                <label for="content">Blog</label>
                 <textarea
-                    id="text"
-                    name="text"
+                    id="content"
+                    name="content"
                     placeholder="Content"
                     maxlength="2000"
-                    rows="6"
+                    rows="9"
                     ></textarea>
             </div>
 
@@ -42,3 +55,9 @@
         </form>
     </div>
 </div>
+
+<?php } else {?>
+
+    <meta http-equiv="refresh" content="0; url=blogs">
+
+<?php } ?>

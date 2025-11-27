@@ -1,6 +1,6 @@
 <?php 
 
-require "database.php";
+
 
 function login($user, $passwd) {
     global $userDB;
@@ -20,7 +20,7 @@ function login($user, $passwd) {
 function get_USER($user) {
     global $userDB;
     
-    $stmt = $userDB->prepare("SELECT ID, Username, Name, PW FROM users WHERE username = :username");
+    $stmt = $userDB->prepare("SELECT ID, Username, Name FROM users WHERE username = :username");
     $stmt->execute(['username' => $user]);
     $userData = $stmt->fetch(PDO::FETCH_ASSOC);
     return $userData;

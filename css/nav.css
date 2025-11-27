@@ -38,6 +38,7 @@ header {
     border-radius: 50%;
     object-fit: cover;
     border: 2px solid #ffffff;
+    margin-left: 20px;
 }
 
 .LoginButton {
@@ -73,7 +74,8 @@ header {
     margin: 0;
     color: #5e5dad;
     font-size: 1.6rem;
-    margin-right: 25px;
+    margin-right: 5px;
+    margin-left: 0;
 }
 
 .botton_Blog:hover {
