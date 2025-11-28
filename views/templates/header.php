@@ -12,8 +12,9 @@
             <a class="botton_Blog" href="blogs">Blogs</a>
             <?php if($loggedIN): ?>
                 <a class="botton_Blog" href="create_Blog">Post</a>
-                <img src="<?= $UserIMG ?>" alt="UserIMAGE">
+                <a href="user"><img src="data:image/jpeg;base64,<?= base64_encode($image) ?>" alt="UserIMAGE"></a>
             <?php else: ?>
+                <a class="botton_Blog" href="login">Post</a>
                 <a class="LoginButton" href="login">Login</a>
             <?php endif; ?>
         </div>

@@ -17,6 +17,14 @@ if (isset($_COOKIE['remember'])) {
     
     $loggedIN = login($username, $password);
 
+    if ($loggedIN) {
+        $user = get_USER($username);
+    }
+
     // echo $username;
     // echo $password;
+}
+
+if (isset($_COOKIE["username"])) {
+    $image = image($_COOKIE["username"]);
 }
