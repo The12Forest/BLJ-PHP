@@ -61,6 +61,7 @@ if ($login_Failed || $_SERVER["REQUEST_METHOD"] == "GET") {
                         id="username" 
                         name="username" 
                         placeholder="Enter your username" 
+                        value="<?php if (isset($_POST["username"])) {echo $_POST["username"];} ?>"
                         required
                     >
                 </div>

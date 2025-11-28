@@ -8,7 +8,7 @@ function blogs($topic) {
     $topicID = $stmt->fetch(PDO::FETCH_ASSOC);
 
 
-    $stmt = $userDB->prepare("SELECT * FROM blogs WHERE topic_id = :topic");
+    $stmt = $userDB->prepare("SELECT * FROM blogs INNER JOIN users ON users.ID = blogs.UserID WHERE blogs.topic_id = :topic ORDER BY blogs.Date DESC;");
     $stmt->execute([':topic' => $topicID["id"]]);
     // $stmt->execute();
     $blogData = $stmt->fetchALL(PDO::FETCH_ASSOC);

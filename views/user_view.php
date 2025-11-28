@@ -60,10 +60,15 @@
             <button type="submit" class="user-btn" id="Button_user">Change username</button>
         </form>
 
-
         <form method="POST" action="user_changepasswd">
             <div class="form-group">
-                <label for="Change-Username">Password</label>
+                <label for="Change-Password">Password</label>
+                
+                <?php if (isset($error)) : ?>
+                    <div class="change_Passwd_failed">
+                        <p><?= $error?></p>
+                    </div>
+                <?php endif; ?>
                 <input 
                     type="password" 
                     id="Change-Password" 

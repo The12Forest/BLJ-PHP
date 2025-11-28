@@ -12,7 +12,10 @@
                 <div class="div_Blog"> 
                     <h2><?= $post["Title"] ?></h2>
                     <p><?= $post["Blog"] ?></p>
-                    
+                    <div class="info">
+                        <p class="Creator"><b>Creator:</b> <?= $post["Username"] ?></p>
+                        <p class="Crated-at"><b>Created at: </b><?= $post["Date"] ?></p>
+                    </div>
                 </div>
             <?php endforeach; ?>
         <?php } else {

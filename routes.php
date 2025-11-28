@@ -11,7 +11,8 @@ $routes = [
     'user'                        => 'views/user_view.php',
     'user_username'               => 'models/user/username.php',
     'user_picture'                => 'models/user/image.php',
-    'logout'                      => 'models/user/logout.php'
+    'logout'                      => 'models/user/logout.php',
+    'user_changepasswd'           => 'models/user/passwd.php'
 
 ];
 

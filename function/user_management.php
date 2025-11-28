@@ -129,3 +129,23 @@ function save_Image($user, $image) {
     return true;
 }
 
+
+function change_Passwd($username, $passwd) {
+    global $userDB;
+
+    try {
+        $stmt = $userDB->prepare("UPDATE users SET PW = :passwd WHERE Username = :username");
+        $stmt->execute(['passwd' => $passwd, 'username' => $username]);
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false; // Kein User gefunden oder Passwort identisch
+        }
+
+    } catch (PDOException $e) {
+        return false;
+    }
+
+}
+

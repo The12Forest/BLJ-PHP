@@ -1,13 +1,11 @@
 .h1_Title {
     color: aliceblue;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5% 20%;
-    width: 50%;
-    grid-column: 1 / 1;
-    grid-row: 1 / 1;
+    text-align: center; /* center text inside the blog */
+    margin-bottom: 1rem; /* space below title */
+    font-size: 2rem; 
+    /* remove display: flex / grid positioning */
 }
+
 
 .div_Blog {
     color: aliceblue;
@@ -20,7 +18,7 @@
 
 .div_Blogs {
     grid-column: 2 / 2;
-    grid-row: 2 / 2;
+    grid-row: 1 / 2;
 }
 
 .div_Fullpage {
@@ -30,4 +28,42 @@
     /* height: 100%; */
 }
 
+.info {
+    margin-top: 3rem;
+}
 
+.info p {
+    display: inline;
+}
+
+.info .Creator {
+    margin-right: 2rem;
+}
+
+
+@media (max-width: 1200px) {
+    .info p {
+        display: block;
+    }
+
+    .h1_Title {
+        display: none;
+        margin: 1rem 0; /* smaller margin for mobile */
+        width: 100%; /* fill parent container */
+    }
+    
+
+    .div_Fullpage {
+        display: flex;
+
+        justify-content: center;
+        
+    }
+
+    .div_Blog {
+        margin: 3% 0;
+        width: calc(90vw - 2*40px);
+        background-color: #2e283d;
+        padding: 20px;
+    }
+}

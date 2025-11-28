@@ -46,7 +46,7 @@ a {
 }
 
 /* Tablet (768px and below) */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .Credit-Div {
         width: 50%;
 

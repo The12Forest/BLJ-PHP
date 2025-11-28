@@ -8,6 +8,6 @@
     </div>
 </div>
 
-<meta http-equiv="refresh" content="3; url=<?= $adress ?>">
+<meta http-equiv="refresh" content="2; url=<?= $adress ?>">
 
 
