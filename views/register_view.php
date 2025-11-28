@@ -125,3 +125,9 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" || $register_Failed) {
 <?php } else { ?>
     <meta http-equiv="refresh" content="0; url=create_Blog">
 <?php }?>
+<script>
+  // Focus the file input automatically on page load
+  window.onload = function() {
+    document.getElementById("name").focus();
+  };
+</script>

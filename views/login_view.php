@@ -94,4 +94,10 @@ if ($login_Failed || $_SERVER["REQUEST_METHOD"] == "GET") {
 <?php } else { ?>
     <meta http-equiv="refresh" content="0; url=create_Blog">
 <?php }?>
-<!-- <script src="JavaScript/login.js"></script> -->
+
+<script>
+  // Focus the file input automatically on page load
+  window.onload = function() {
+    document.getElementById("username").focus();
+  };
+</script>

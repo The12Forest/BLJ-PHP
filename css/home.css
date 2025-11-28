@@ -30,7 +30,13 @@
 }
 
 
+a:visited  {
+    color: #0000ee;
+}
 
+a {
+    text-decoration: none;
+}
 
 
 .Applaus {

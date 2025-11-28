@@ -11,4 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_FILES["Change-Picture"]) && 
         $error = "Error uploading file: " . $_FILES["Change-Picture"]["error"];
         require "views/user/not_successfull.php";
     }
-}
+} else { ?>
+    <meta http-equiv="refresh" content="3; url=">
+<?php } ?>

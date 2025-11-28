@@ -1,16 +1,16 @@
 <?php 
     $POST_Succesfull = false;
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $username = $_COOKIE["username"];
-        $password = $_COOKIE["passwd"];
+    $username = $_COOKIE["username"];
+    $password = $_COOKIE["passwd"];
 
-        // $content = $_POST['content'] ?? '';  // to allow Cross site scripting
+    // $content = $_POST['content'] ?? '';  // to allow Cross site scripting
 
-        if (login($username, $password)) {
-            $user = get_USER($username);
-        }
-    }
+    if (login($username, $password)) {
+        $user = get_USER($username);
+    } else { ?> 
+        <meta http-equiv="refresh" content="0; url=login">
+    <?php }
 ?>
 
 <link rel="stylesheet" href="css/user.css">
@@ -34,7 +34,7 @@
         <form enctype="multipart/form-data" method="POST" action="user_picture">
             <div class="form-group">
                 <label for="Change-Picture">Profile Picture</label>
-                <input type="hidden" name="MAX_FILE_SIZE" value="16777215" />
+                <input type="hidden" name="MAX_FILE_SIZE" value="16777" />
                 <input 
                     type="file" 
                     id="Change-Picture" 

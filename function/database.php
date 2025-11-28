@@ -16,6 +16,11 @@ $otherDB = new PDO('mysql:host=10.10.20.188;dbname=urs', 'bljuser', 'hallo123', 
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
 ]);
 
+// $otherDB = new PDO('mysql:host=localhost;dbname=blj', 'bljic_mawaldburger', 'db_BLJ_2025', [
+//     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+//     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',
+// ]);
+
 $userDB = new PDO('mysql:host=localhost;dbname=bljic_mawaldburger', 'bljic_mawaldburger', 'db_BLJ_2025', [
     PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
     PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8',

@@ -54,7 +54,24 @@ function register($name, $username, $passwd, $img = 'images/User.jpg') {
     return true;
 }
 
+function change_User($username, $userold) {
+    global $userDB;
 
+    $stmt = $userDB->prepare("SELECT ID FROM users WHERE Username = :username");
+    $stmt->execute(['username' => $username]);
+
+    $existing = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if ($existing) {
+        return false;
+    }
+
+    $stmt = $userDB->prepare("UPDATE users SET Username = :username WHERE Username = :oldusername");
+    $stmt->execute(['username'       => $username,
+                    'oldusername'    => $userold]);
+
+    return true;
+}
 
 
 
@@ -68,22 +85,27 @@ function image($username) {
 
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // ERROR in IMAGE
-
-    $stmt = $userDB->prepare("SELECT * FROM img WHERE ID = :id");
-    $stmt->execute(['id' => $user["IMG"]]);
-
-    $image = $stmt->fetch(PDO::FETCH_ASSOC);
-
-
-    return $image["img"];
+    if ($user) {
+        $stmt = $userDB->prepare("SELECT * FROM img WHERE ID = :id");
+        $stmt->execute(['id' => $user["IMG"]]);
     
+        $image = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    
+        return $image["img"];
+    }
 }
 
 
 function save_Image($user, $image) {
     global $userDB;
 
+    //Get existing ID
+    $stmt = $userDB->prepare("SELECT ID, IMG FROM users WHERE Username = :username");
+    $stmt->execute(['username' => $user]);
+    $imagID_OLD = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    //Save image in DB
     $imageData = file_get_contents($image);
 
     $stmt = $userDB->prepare("INSERT INTO img (img) VALUES (:img)");
@@ -92,12 +114,18 @@ function save_Image($user, $image) {
     $lastInsertId = $userDB->lastInsertId();
 
 
-    //Edit user image
+    //Edit user image entry
     $stmt = $userDB->prepare("UPDATE users SET IMG = :img WHERE Username = :username");
     $stmt->execute(['img'       => $lastInsertId, 
                     'username'  => $user]);
 
+    //delete the image except if it is 1 because it is the default
 
+    if ($imagID_OLD["IMG"] != 1) {
+        $stmt = $userDB->prepare("DELETE FROM img WHERE ID = :ID");
+        $stmt->execute(['ID' => $imagID_OLD["IMG"]]);
+    }
 
     return true;
 }
+
